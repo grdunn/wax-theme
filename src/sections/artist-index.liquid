@@ -1,0 +1,5 @@
+{% for metaobject in shop.metaobjects.artist.values %}
+  <li>
+    {{ metaobject.name | link_to: metaobject.system.url }}
+  </li>
+{% endfor %}
