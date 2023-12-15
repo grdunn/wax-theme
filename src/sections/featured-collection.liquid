@@ -1,9 +1,28 @@
-<div>
-  {{section.settings.title}}
-  {{section.settings.subtext}}
-  {% for product in section.settings.collection.products %}
-    {{ product.title }}
-  {% endfor %}
+<div class="featured-collection container mx-auto my-10">
+  <div class="featured-collection__title mb-10">
+    <h4 class="text-center text-xl overflow-hidden">{{section.settings.title}}</h4>
+  </div>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+    {% for product in section.settings.collection.products %}
+      {% assign artist = product.metafields.custom.artist.value %}
+
+      {% comment %} 
+        Featured Image
+        Sold Out Flag {{ product.available }}
+        Album Title
+        Artist (metafield reference?)
+        Price
+      {% endcomment %}
+      <a href="{{ product.url }}" class="featured-collection__card">
+        <img class="w-full" src="{{ product.featured_image | image_url }}">
+        <div class="featured-collection__meta my-3">
+          <h5 class="text-base font-semibold tracking-wider text-center uppercase">{{ artist.name }}</h5>
+          <p class="text-center text-sm italic uppercase">{{ product.title }}</p>
+          <p class="text-center text-sm">{{ product.price | money }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
 </div>
 
 {% schema %}
