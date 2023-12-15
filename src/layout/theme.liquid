@@ -6,15 +6,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="">
   <link rel="canonical" href="{{ canonical_url }}">
-
   <title>{{ shop.name }}</title>
-
   <meta name="description" content="">
-
-  {% comment %} {% include 'style-tags', layout: 'theme' %}
-  {% include 'script-tags', layout: 'theme' %} {% endcomment %}
-
   {{ content_for_header }}
+  <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
 </head>
 
 <body>
