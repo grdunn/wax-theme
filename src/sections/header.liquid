@@ -1,26 +1,30 @@
-<header class="header h-24 bg-brand-background flex items-center justify-center">
-  <div class="header__primary-links">
-    <ul class="flex">
-      {% for link in linklists.main-menu.links -%}
-        <li class="px-4 text-lg">
-          {{ link.title | link_to: link.url }}
-        </li>
-      {%- endfor %}
-    </ul>
-  </div>
-  <div class="header__inner mx-10">
-    <a href="/">
-      <img class="h-14" src="{{ 'logo_header.svg' | asset_url }}">
-    </a>
-  </div>
-  <div class="header__secondary-links">
-    <ul class="flex">
-      {% for link in linklists.secondary-menu.links -%}
-        <li class="px-4 text-lg">
-          {{ link.title | link_to: link.url }}
-        </li>
-      {%- endfor %}
-    </ul>
+<header class="w-full header h-24 bg-brand-background flex items-center justify-center">
+  <div class="header__inner container flex items-center justify-between">
+    <img class="h-10 justify-self-start" src="{{ 'phl.svg' | asset_url }}">
+    <div class="header__primary-links">
+      <ul class="flex">
+        {% for link in linklists.main-menu.links -%}
+          <li class="px-4 text-lg">
+            {{ link.title | link_to: link.url }}
+          </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div class="">
+      <a href="/">
+        <img class="h-14" src="{{ 'logo_header.svg' | asset_url }}">
+      </a>
+    </div>
+    <div class="header__secondary-links">
+      <ul class="flex">
+        {% for link in linklists.secondary-menu.links -%}
+          <li class="px-4 text-lg">
+            {{ link.title | link_to: link.url }}
+          </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <img class="h-10" src="{{ '2930.svg' | asset_url }}">
   </div>
 </header>
 
